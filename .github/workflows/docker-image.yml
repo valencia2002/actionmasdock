@@ -25,6 +25,13 @@ jobs:
         echo "iniciendo login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "Fin login"
+    - name: Docker build Image
+      run: |
+        docker build -t valencia2002/docker-action:0.0.1 .
+
+    - name: Push docker Image
+      run: |
+        docker push valencia2002/docker-action:0.0.1 .
         
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
